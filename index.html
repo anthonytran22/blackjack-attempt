@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Jack</title>
+    <link rel="stylesheet" href="blackjack.css">
+    <script defer src="blackjack.js"></script>
+
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            font-size: 20px; 
+            padding: 20px;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+        }
+         button:hover {
+            background-color: #b8d1fd;
+        }
+    </style>
+</head>
+    <body>
+        <h2>dealer (a cheater): <span id="dealerHand"></span></h2>
+        <div id="dealerCards" class="hand"></div>
+        <p id="dealerTotal"></p>
+
+        <h2>you (a bum): <span id="playerHand"></span></h2>
+        <div id="playerCards" style="display:flex; gap:10px;"></div>
+        <p id="playerTotal"></p>
+
+        <br>
+        <button id="hit" onclick="hit()">hit</button>
+        <button id="stay" onclick="stand()">stay</button>
+        <br><br>
+        <button onclick="init()">new game</button>
+        <br><br>
+        <h2 id="result"></h2>
+        <img id="resultGif"
+            src=""
+            alt="result animation"
+            style="display:none; width:300px; margin:10px auto 0; display:block;" />
+
+    </body>
+</html>
