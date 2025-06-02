@@ -1,63 +1,84 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Black Jack</title>
-    <link rel="stylesheet" href="blackjack.css">
-    <script defer src="blackjack.js"></script>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Black Jack</title>
+  <link rel="stylesheet" href="blackjack.css">
+  <script defer src="blackjack.js"></script>
 
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            font-size: 15px; 
-            padding: 15px;
-        }
-
-        button {
-            font-size: 20px;
-            padding: 15px 30px;
-            margin: 10px;
-            border-radius: 10px;
-            border: none;
-            cursor: pointer;
-        }
-         button:hover {
-            background-color: #b8d1fd;
-        }
-    </style>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      font-size: 15px; 
+      padding: 15px;
+    }
+    button {
+      font-size: 20px;
+      padding: 15px 30px;
+      margin: 10px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #b8d1fd;
+    }
+    .character:hover {
+      transform: scale(1.1);
+      transition: 0.3s;
+    }
+  </style>
 </head>
-    <body>
-        <img id="sideImage" src="jakoob.png" alt="Side Image" style="margin-left: 30px; width: 100px;">
-        <h2>dealer (a cheater): <span id="dealerHand"></span></h2>
-        <div id="dealerCards" class="hand"></div>
-        <p id="dealerTotal"></p>
 
-        <hr \>
-        <img id="sideImage" src="kilroy.jpg" alt="Side Image" style="margin-left: 30px; width: 100px;">
-        <h2>you (a bum): <span id="playerHand"></span></h2>
-        <div id="playerCards" style="display:flex; gap:10px;"></div>
-        <p id="playerTotal"></p>
+<body>
 
-        <br>
-        <button id="hit" onclick="hit()">hit</button>
-        <button id="stay" onclick="stand()">stay</button>
-        <br><br>
-        <button onclick="init()">new game</button>
-        <br><br>
-        <h2 id="result"></h2>
-        <img id="resultGif"
-            src=""
-            alt="result animation"
-            style="display:none; width:300px; margin:10px auto 0; display:block;" />
+  <!-- Menu Screen -->
+  <div id="menuScreen">
+    <h1>Choose Your Character</h1>
+    <div id="charSelect" style="display: flex; justify-content: center; gap: 50px;">
+      <img src="jwelke.png" class="character" style="width:150px; cursor:pointer;">
+      <img src="kilroy.jpg" class="character" style="width:150px; cursor:pointer;">
+      <img src="pjacobs.png" class="character" style="width:150px; cursor:pointer;">
+      <img src="lmitchell.png" class="character" style="width:150px; cursor:pointer;">
+      <img src="mruhmguy.png" class="character" style="width:150px; cursor:pointer;">
+    </div>
+  </div>
 
-        <img id="leftBanner" src="banner.png" 
-            style="position: absolute; top: 300px; left: 0; width: 700px; display: none;">
+  <!-- Game Screen -->
+  <div id="gameScreen" style="display:none;">
 
-        <img id="rightBanner" src="banner.png" 
-            style="position: absolute; top: 300px; right: 0; width: 700px; display: none;">
+    <img id="dealerImage" src="jakoob.png" alt="Dealer Image" style="margin-left: 30px; width: 100px;">
+    <h2>Dealer (a cheater): <span id="dealerHand"></span></h2>
+    <div id="dealerCards" class="hand"></div>
+    <p id="dealerTotal"></p>
 
-    </body>
+    <hr>
+
+    <img id="sideImage" src="kilroy.jpg" alt="Gooner Image" style="margin-left: 30px; width: 100px;">
+    <h2>You (a bum): <span id="playerHand"></span></h2>
+    <div id="playerCards" style="display:flex; gap:10px;"></div>
+    <p id="playerTotal"></p>
+
+    <br>
+    <button id="hit" onclick="hit()">Hit</button>
+    <button id="stay" onclick="stand()">Stay</button>
+    <br><br>
+    <button onclick="init()">New Game</button>
+    <br><br>
+    <h2 id="result"></h2>
+    <img id="resultGif"
+         src=""
+         alt="result animation"
+         style="display:none; width:300px; margin:10px auto 0; display:block;" />
+
+    <img id="leftBanner" src="banner.png" 
+         style="position: absolute; top: 300px; left: 0; width: 700px; display: none;">
+    <img id="rightBanner" src="banner.png" 
+         style="position: absolute; top: 300px; right: 0; width: 700px; display: none;">
+
+  </div>
+
+</body>
 </html>
