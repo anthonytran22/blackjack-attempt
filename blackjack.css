@@ -14,3 +14,7 @@ body {
     height: 50px;
     font-size: 20px;
 }
+
+#playerTotal, #dealerTotal {
+    font-size: 17px;
+}

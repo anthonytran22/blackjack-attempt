@@ -68,6 +68,8 @@ function init() {
     document.getElementById("stay").disabled = false;
     document.getElementById("resultGif").style.display = "none";
     document.getElementById("resultGif").src = "";
+    document.getElementById("leftBanner").style.display = "none";
+    document.getElementById("rightBanner").style.display = "none";
     
     updateDisplay();
 }
@@ -100,8 +102,7 @@ function hit() {
     let playerTotal = handValues(playerHand);
 
     if (playerTotal > 21) {
-        showResult("busttttttttttttttt loser",
-    getRandomGif(bustGifs));
+        showResult("busttttttttttttttt loser", getRandomGif(bustGifs), true);
     }
 }
 
@@ -117,32 +118,40 @@ function stand() {
     document.getElementById("dealerTotal").innerText = "total: " + dealerTotal;
 
     if (dealerTotal > 21 || playerTotal > dealerTotal) {
-        showResult("winner winner chicken dinner",
-    getRandomGif(winGifs));
+        showResult("winner winner chicken dinner", getRandomGif(winGifs));
     } else if (playerTotal < dealerTotal) {
-        showResult("loser LOL",
-    getRandomGif(loseGifs));
+        showResult("Loser LOL", getRandomGif(loseGifs), true);
     } else {
-        showResult("tie (dealer wins so u lose)", "https://media1.tenor.com/m/ap6LSaSeQ_kAAAAC/ishowspeed-try-not-to-laugh.gif")
+        showResult("tie (dealer wins so u lose)", "https://media1.tenor.com/m/ap6LSaSeQ_kAAAAC/ishowspeed-try-not-to-laugh.gif", true)
     }
     document.getElementById("hit").disabled = true;
     document.getElementById("stay").disabled = true;
 }
 
-function showResult(text, gifURL) {
+function showResult(text, gifURL, showBanners = false) {
   const resultEl = document.getElementById("result");
-  const gifEl    = document.getElementById("resultGif");
+  const gifEl = document.getElementById("resultGif");
+  const leftBanner = document.getElementById("leftBanner");
+  const rightBanner = document.getElementById("rightBanner");
 
   resultEl.innerText = text;
 
   if (gifURL) {
-    gifEl.src           = gifURL;
+    gifEl.src = gifURL;
     gifEl.style.display = "block";
   } else {
     gifEl.style.display = "none";
   }
 
-  document.getElementById("hit").disabled  = true;
+  if (showBanners) {
+    leftBanner.style.display = "block";
+    rightBanner.style.display = "block";
+  } else {
+    leftBanner.style.display = "none";
+    rightBanner.style.display = "none";
+  }
+
+  document.getElementById("hit").disabled = true;
   document.getElementById("stay").disabled = true;
 }
 

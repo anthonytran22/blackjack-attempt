@@ -12,8 +12,8 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            font-size: 20px; 
-            padding: 20px;
+            font-size: 15px; 
+            padding: 15px;
         }
 
         button {
@@ -30,10 +30,13 @@
     </style>
 </head>
     <body>
+        <img id="sideImage" src="jakoob.png" alt="Side Image" style="margin-left: 30px; width: 100px;">
         <h2>dealer (a cheater): <span id="dealerHand"></span></h2>
         <div id="dealerCards" class="hand"></div>
         <p id="dealerTotal"></p>
 
+        <hr \>
+        <img id="sideImage" src="kilroy.jpg" alt="Side Image" style="margin-left: 30px; width: 100px;">
         <h2>you (a bum): <span id="playerHand"></span></h2>
         <div id="playerCards" style="display:flex; gap:10px;"></div>
         <p id="playerTotal"></p>
@@ -49,6 +52,12 @@
             src=""
             alt="result animation"
             style="display:none; width:300px; margin:10px auto 0; display:block;" />
+
+        <img id="leftBanner" src="banner.png" 
+            style="position: absolute; top: 300px; left: 0; width: 700px; display: none;">
+
+        <img id="rightBanner" src="banner.png" 
+            style="position: absolute; top: 300px; right: 0; width: 700px; display: none;">
 
     </body>
 </html>
