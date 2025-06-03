@@ -76,6 +76,8 @@ function init() {
   document.getElementById("resultGif").src = "";
   document.getElementById("leftBanner").style.display = "none";
   document.getElementById("rightBanner").style.display = "none";
+  document.getElementById("wLBanner").style.display = "none";
+  document.getElementById("wRBanner").style.display = "none";
 
   updateDisplay();
 }
@@ -98,7 +100,7 @@ function hit() {
   let playerTotal = handValues(playerHand);
 
   if (playerTotal > 21) {
-    showResult("Bust — you lose!", getRandomGif(bustGifs), true);
+    showResult("buustttttttt loser", getRandomGif(bustGifs), true, false);
   }
 }
 
@@ -114,25 +116,35 @@ function stand() {
   document.getElementById("dealerTotal").innerText = "total: " + dealerTotal;
 
   if (dealerTotal > 21 || playerTotal > dealerTotal) {
-    showResult("Winner winner chicken dinner!", getRandomGif(winGifs));
+    showResult("winner winner chicken dinner", getRandomGif(winGifs), false, true);
   } else if (playerTotal < dealerTotal) {
-    showResult("Loser LOL", getRandomGif(loseGifs), true);
+    showResult("loser LOL", getRandomGif(loseGifs), true, false);
   } else {
-    showResult("Tie (dealer wins so u lose)", "https://media1.tenor.com/m/ap6LSaSeQ_kAAAAC/ishowspeed-try-not-to-laugh.gif", true);
+    showResult("tie (dealer wins so u lose)", "https://media1.tenor.com/m/ap6LSaSeQ_kAAAAC/ishowspeed-try-not-to-laugh.gif", true, false);
   }
 }
 
-function showResult(text, gifURL, showBanners = false) {
+function showResult(text, gifURL, showBanners = false, isWinner = false) {
   document.getElementById("result").innerText = text;
   const gifEl = document.getElementById("resultGif");
   const leftBanner = document.getElementById("leftBanner");
   const rightBanner = document.getElementById("rightBanner");
+  const wLBanner = document.getElementById("wLBanner");
+  const wRBanner = document.getElementById("wRBanner");
 
   if (gifURL) {
     gifEl.src = gifURL;
     gifEl.style.display = "block";
   } else {
     gifEl.style.display = "none";
+  }
+
+  if(isWinner) {
+    wLBanner.style.display = "block";
+    wRBanner.style.display = "block";
+  } else {
+    wLBanner.style.display = "none";
+    wRBanner.style.display = "none";
   }
 
   if (showBanners) {
